@@ -1,9 +1,10 @@
-import React, { Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import { Contacts } from "./pages/Contacts";
-import { About } from "./pages/About";
-import { Home } from "./pages/Home";
+
+const About = lazy(() => import(/* webpackChunkName: "About" */ 'pages/About').then((module) =>({default: module.About})));
+const Home = lazy(() => import(/* webpackChunkName: "Home" */ 'pages/Home').then((module) =>({default: module.Home})));
+const Contacts = lazy(() => import(/* webpackChunkName: "Contacts" */ 'pages/Contacts').then((module) =>({default: module.Contacts})));
 
 function App() {
   return (
