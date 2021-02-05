@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
 const About = lazy(() => import(/* webpackChunkName: "About" */ 'pages/About').then((module) =>({default: module.About})));

@@ -1,9 +1,9 @@
-import * as yup from "yup";
-import { yupResolver } from '@hookform/resolvers/yup';
+import { createResolver } from "modules/resolver";
+import { stringRequired, yupShape } from "modules/yupSchemaDefinitions";
 
-const schema = yup.object().shape({
-  firstName: yup.string().required(),
-  gender: yup.string().required(),
-});
+const schema = yupShape({
+  firstName: stringRequired,
+  gender: stringRequired,
+})
 
-export const resolver = yupResolver(schema);
+export const resolver = createResolver(schema);

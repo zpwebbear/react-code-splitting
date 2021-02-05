@@ -1,11 +1,9 @@
 import { BaseSyntheticEvent } from "react";
-import { useForm } from "react-hook-form";
 import { resolver } from "./schema";
+import { useReactHookForm } from 'modules/form';
 
 export const ContactForm = () => {
-  const { register, handleSubmit } = useForm({
-      resolver: resolver,
-  });
+  const { register, handleSubmit } = useReactHookForm(resolver);
   
   const onSubmit = (data: BaseSyntheticEvent) => console.log(data);
 
